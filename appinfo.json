@@ -1,26 +1,30 @@
 {
-  "uuid": "f8a9186d-0498-4b50-8a5b-d23292fd689b",
-  "shortName": "RadioPebbledise",
-  "longName": "RadioPebbledise",
-  "companyName": "Michael Lyons",
-  "versionCode": 3,
-  "versionLabel": "0.0.1",
-  "watchapp": {
-    "watchface": false
-  },
-  "appKeys": {},
-  "resources": {
-    "media": [
-      {
-        "type": "png",
-        "name": "IMAGE_NO_LITTER",
-        "file": "images/no_litter.png"
-      },
-      {
-        "type": "png",
-        "name": "IMAGE_RP_LOGO_MINI",
-        "file": "images/logo_mini.png"
-      }
-    ]
-  }
+    "versionLabel": "0.0.1",
+    "uuid": "f8a9186d-0498-4b50-8a5b-d23292fd689b",
+    "appKeys": {},
+    "longName": "RadioPebbledise",
+    "versionCode": 2,
+    "capabilities": [
+        ""
+    ],
+    "shortName": "RadioPebbledise",
+    "companyName": "Michael Lyons",
+    "watchapp": {
+        "watchface": false
+    },
+    "resources": {
+        "media": [
+            {
+                "menuIcon": true,
+                "type": "png",
+                "name": "IMAGE_RP_LOGO_MINI",
+                "file": "images/logo_mini.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_NO_LITTER",
+                "file": "images/no_litter.png"
+            }
+        ]
+    }
 }

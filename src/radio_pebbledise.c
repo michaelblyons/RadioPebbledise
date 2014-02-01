@@ -45,7 +45,7 @@ static void init() {
   main_window = window_create();
   window_stack_push(main_window, true /* Animated */);
 
-  image = gbitmap_create_with_resource(IMAGE_NO_LITTER);
+  image = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_NO_LITTER);
 
   Layer* window_layer = window_get_root_layer(main_window);
   GRect bounds = layer_get_frame(window_layer);

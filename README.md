@@ -3,7 +3,7 @@ RadioPebbledise
 
 This is ultimately intended to be a full-featured [Pebble][pebble] watch control for [RadioParadise][rp]'s [Android app][rp_android].
 
-Its development is not currently sanctioned, but I'm hoping things work out.
+Its development is not currently sanctioned by RP, but I'm hoping things work out.
 
 Development Notes
 =================
@@ -16,8 +16,8 @@ Don't laugh. This is my first time with Pebble or with straight-up C. The below 
 + __Window__ Main (Now Playing) screen
     + __ActionBarLayer__ Controls
         1. Return to Stream (if PSD)
-           + If not PSD, rate song?
-           + Long Press to rate song when PSD?
+           + Long Press to rate song
+           + If not PSD, rate song on single click?
         2. Play/Stop
         3. PSD
     + __Layer__ Song info

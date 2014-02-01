@@ -44,6 +44,7 @@ static GBitmap *icon_ctrl_play;
 static GBitmap *icon_ctrl_stop;
 static GBitmap *icon_ctrl_psd;
 static GBitmap *icon_ctrl_return;
+static GBitmap *logo_mini;
 static BitmapLayer *current_status_layer;
 
 /*
@@ -57,13 +58,30 @@ void play_pause_click_handler(ClickRecognizerRef recognizer, void *context){
         bitmap_layer_set_bitmap(current_status_layer, icon_ctrl_play);
     }
     else{
+        IS_PSD = false;
         action_bar_layer_set_icon(main_action_bar, BUTTON_ID_SELECT, icon_ctrl_play);
         bitmap_layer_set_bitmap(current_status_layer, icon_ctrl_stop);
     }
 }
 
+void return_click_handler(ClickRecognizerRef recognizer, void *context){
+    if(IS_PLAYING){
+        IS_PSD = false;
+        bitmap_layer_set_bitmap(current_status_layer, icon_ctrl_play);
+    }
+}
+
+void psd_click_handler(ClickRecognizerRef recognizer, void *context){
+    if(IS_PLAYING){
+        IS_PSD = true;
+        bitmap_layer_set_bitmap(current_status_layer, icon_ctrl_psd);
+    }
+}
+
 void main_config_provider(void *context){
     window_single_click_subscribe(BUTTON_ID_SELECT, play_pause_click_handler);
+    window_single_click_subscribe(BUTTON_ID_UP, return_click_handler);
+    window_single_click_subscribe(BUTTON_ID_DOWN, psd_click_handler);
 }
 
 /*
@@ -81,6 +99,7 @@ static void init() {
     icon_ctrl_stop = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_CTRL_STOP);
     icon_ctrl_psd = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_CTRL_PSD);
     icon_ctrl_return = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_CTRL_RETURN);
+    logo_mini = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_RP_LOGO_MINI);
 
     action_bar_layer_set_icon(main_action_bar, BUTTON_ID_UP, icon_ctrl_return);
     action_bar_layer_set_icon(main_action_bar, BUTTON_ID_DOWN, icon_ctrl_psd);
@@ -89,7 +108,7 @@ static void init() {
     Layer* window_layer = window_get_root_layer(main_window);
     GRect bounds = layer_get_frame(window_layer);
     current_status_layer = bitmap_layer_create(bounds);
-    bitmap_layer_set_bitmap(current_status_layer, icon_ctrl_return);
+    bitmap_layer_set_bitmap(current_status_layer, logo_mini);
     layer_add_child(window_layer, bitmap_layer_get_layer(current_status_layer));
 }
 
@@ -98,6 +117,7 @@ static void deinit() {
     gbitmap_destroy(icon_ctrl_stop);
     gbitmap_destroy(icon_ctrl_psd);
     gbitmap_destroy(icon_ctrl_return);
+    gbitmap_destroy(logo_mini);
     bitmap_layer_destroy(current_status_layer);
     window_destroy(main_window);
 }

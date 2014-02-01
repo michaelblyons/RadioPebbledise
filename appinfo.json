@@ -3,7 +3,7 @@
   "shortName": "RadioPebbledise",
   "longName": "RadioPebbledise",
   "companyName": "Michael Lyons",
-  "versionCode": 2,
+  "versionCode": 3,
   "versionLabel": "0.0.1",
   "watchapp": {
     "watchface": false
@@ -15,6 +15,11 @@
         "type": "png",
         "name": "IMAGE_NO_LITTER",
         "file": "images/no_litter.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_RP_LOGO_MINI",
+        "file": "images/logo_mini.png"
       }
     ]
   }

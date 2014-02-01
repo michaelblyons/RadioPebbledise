@@ -22,11 +22,6 @@
             },
             {
                 "type": "png",
-                "name": "IMAGE_NO_LITTER",
-                "file": "images/no_litter.png"
-            },
-            {
-                "type": "png",
                 "name": "IMAGE_CTRL_PLAY",
                 "file": "images/controls/play.png"
             },

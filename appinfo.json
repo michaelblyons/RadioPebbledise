@@ -5,7 +5,7 @@
     "shortName": "RadioPebbledise",
     "longName": "RadioPebbledise",
     "companyName": "Michael Lyons",
-    "versionCode": 3,
+    "versionCode": 4,
     "capabilities": [
         ""
     ],
@@ -24,6 +24,26 @@
                 "type": "png",
                 "name": "IMAGE_NO_LITTER",
                 "file": "images/no_litter.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_CTRL_PLAY",
+                "file": "images/controls/play.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_CTRL_PSD",
+                "file": "images/controls/psd.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_CTRL_STOP",
+                "file": "images/controls/stop.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_CTRL_RETURN",
+                "file": "images/controls/return.png"
             }
         ]
     }

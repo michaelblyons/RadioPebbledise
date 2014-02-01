@@ -38,28 +38,27 @@ bool IS_PLAYING = false;
 
 static Window *main_window;
 static Window *rating_window;
-static ActionBar *main_action_bar;
+static ActionBarLayer *main_action_bar;
 
 static GBitmap *icon_ctrl_play;
 static GBitmap *icon_ctrl_stop;
 static GBitmap *icon_ctrl_psd;
 static GBitmap *icon_ctrl_return;
-static GBitmap *test_image;
-static BitmapLayer *image_layer;
+static BitmapLayer *current_status_layer;
 
 /*
  * Event handlers
  */
 void play_pause_click_handler(ClickRecognizerRef recognizer, void *context){
     IS_PLAYING = !IS_PLAYING;
-    test_image = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_RP_LOGO_MINI);
-    bitmap_layer_set_bitmap(image_layer, test_image);
 
     if(IS_PLAYING){
         action_bar_layer_set_icon(main_action_bar, BUTTON_ID_SELECT, icon_ctrl_stop);
+        bitmap_layer_set_bitmap(current_status_layer, icon_ctrl_play);
     }
     else{
         action_bar_layer_set_icon(main_action_bar, BUTTON_ID_SELECT, icon_ctrl_play);
+        bitmap_layer_set_bitmap(current_status_layer, icon_ctrl_stop);
     }
 }
 
@@ -87,18 +86,19 @@ static void init() {
     action_bar_layer_set_icon(main_action_bar, BUTTON_ID_DOWN, icon_ctrl_psd);
     action_bar_layer_set_icon(main_action_bar, BUTTON_ID_SELECT, icon_ctrl_play);
 
-    test_image = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_NO_LITTER);
-
     Layer* window_layer = window_get_root_layer(main_window);
     GRect bounds = layer_get_frame(window_layer);
-    image_layer = bitmap_layer_create(bounds);
-    bitmap_layer_set_bitmap(image_layer, test_image);
-    layer_add_child(window_layer, bitmap_layer_get_layer(image_layer));
+    current_status_layer = bitmap_layer_create(bounds);
+    bitmap_layer_set_bitmap(current_status_layer, icon_ctrl_return);
+    layer_add_child(window_layer, bitmap_layer_get_layer(current_status_layer));
 }
 
 static void deinit() {
-    gbitmap_destroy(image);
-    bitmap_layer_destroy(image_layer);
+    gbitmap_destroy(icon_ctrl_play);
+    gbitmap_destroy(icon_ctrl_stop);
+    gbitmap_destroy(icon_ctrl_psd);
+    gbitmap_destroy(icon_ctrl_return);
+    bitmap_layer_destroy(current_status_layer);
     window_destroy(main_window);
 }
 

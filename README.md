@@ -1,7 +1,7 @@
 RadioPebbledise
 ===============
 
-This is ultimately intended to be a full-featured [Pebble](http://getpebble.com) watch control for [RadioParadise](http://radioparadise.com)'s [Android app](https://play.google.com/store/apps/details?id=com.earthflare.anddroid.radioparadisewidget&hl=en).
+This is ultimately intended to be a full-featured [Pebble][pebble] watch control for [RadioParadise][rp]'s [Android app][rp_android].
 
 Its development is not currently sanctioned, but I'm hoping things work out.
 
@@ -13,14 +13,18 @@ Don't laugh. This is my first time with Pebble or with straight-up C. The below 
 (Intended) Structure
 --------------------
 
-+ *Window* Startup screen
-    + *Layer* Layer
-        + *Image* RP Logo
-+ *Window* Main (Now Playing) screen
-    + *Layer* Controls
-        + *Image* Sprites
-    + *Layer* Song info
-        + *Text* Song name
-        + *Text* Band name
-+ *Window*? Ratings screen
-    + *MenuLayer* Ratings
++ __Window__ Startup screen
+    + __Layer__ Layer
+        + __Image__ RP Logo
++ __Window__ Main (Now Playing) screen
+    + __Layer__ Controls
+        + __Image__ Sprites
+    + __Layer__ Song info
+        + __Text__ Song name
+        + __Text__ Band name
++ __Window__? Ratings screen
+    + __MenuLayer__ Ratings
+
+[pebble]: http://getpebble.com "Official Pebble Website"
+[rp]: http://radioparadise.com
+[rp_android]: https://play.google.com/store/apps/details?id=com.earthflare.anddroid.radioparadisewidget&hl=en "Official Pebble Android app"
